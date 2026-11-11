@@ -19,7 +19,7 @@ file afterwrds.
 
 In this tutorial we focus on using Apptainer. In our course 
 [Using CSC HPC Environment Efficiently](https://csc-training.github.io/csc-env-eff/)
-we have a tutorial [Installing a simple C code from source](https://csc-training.github.io/csc-env-eff/hands-on/installing/installing_hands-on_mcl.html) where you can find more information on the installation
+we have a tutorial [Installing a simple C code from source](https://csc-training.github.io/csc-env-eff/hands-on/installing/installing_hands-on_c.html) where you can find more information on the installation
 process itself.
 
 In this exercise we install [HMMER](https://github.com/EddyRivasLab/hmmer).
@@ -51,7 +51,7 @@ export APPTAINER_CACHEDIR=$TMPDIR
 Now lets create the base container:
 
 ```bash
-apptainer build --fix-perms --sandbox hmmer docker://rockylinux:8.6
+apptainer build --fakeroot --sandbox hmmer docker://docker.io/rockylinux/rockylinux:9.8
 ```
 
 Note that instead of an image file, we created a directory called `hmmer`. If
@@ -66,7 +66,7 @@ to work. We also need either use `--cleanenv` or run `unset $TMPDIR` inside the
 container:
 
 ```bash
-sudo apptainer shell --cleanenv --fakeroot --writable hmmer
+apptainer shell --fakeroot --writable  --cleanenv --no-mount home  --writable hmmer
 ```
 
 The command prompt should now be `Apptainer>`
@@ -90,7 +90,8 @@ dendencies easier.
 Also notice that you should not use `sudo` to run the commands.
 
 ```bash
-yum group install "Development Tools" -y
+dnf install -y \
+        gcc gcc-c++ make autoconf automake libtool git
 ```
 
 We are now ready to install the software. 
@@ -98,23 +99,22 @@ We are now ready to install the software.
 Clone the software repository from GitHub and install:
 
 ```bash
-git clone https://github.com/EddyRivasLab/hmmer
-cd hmmer
-git clone https://github.com/EddyRivasLab/easel
-autoconf
-./configure
-make
-make install
+    cd /opt
+    git clone https://github.com/EddyRivasLab/hmmer.git
+    cd hmmer
+    git clone https://github.com/EddyRivasLab/easel.git
+    autoreconf -i
+    ./configure --prefix=/opt/hmmer
+    make -j4
+    make install
 ```
-
+Add binary paths:
+```
+export PATH=/opt/hmmer/bin:$PATH
+```
 We can now test the application to see it works:
 ```bash
-hmmsearh -h
-```
-If everything works we can clean up:
-```bash
-cd /
-rm -rf hmmer
+hmmsearch -h
 ```
 
 We can also add a runscript:
@@ -137,7 +137,7 @@ In order to run the container without sudo rights we need to build
 a production image from the sandbox:
 
 ```bash
-apptainer build hmmer.sif hmmer
+apptainer --fakeroot build hmmer.sif hmmer
 ```
 
 We can now test it.
