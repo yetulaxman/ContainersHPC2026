@@ -78,8 +78,8 @@ After this tutorial, you will be able to:
    less results.txt   # you should be able to see the sequenc matches the isoforms of phosphatases in mouse database as the best hits in this blast search
    ```
 
-   ```bash
- Sequences producing significant alignments:                          (Bits)  Value
+ ```bash
+Sequences producing significant alignments:                          (Bits)  Value
 XP_036016308.1 protein phosphatase 1B isoform X3 [Mus musculus]       129     2e-32
 XP_036016306.1 protein phosphatase 1B isoform X2 [Mus musculus]       129     3e-32
 XP_011244624.1 protein phosphatase 1B isoform X1 [Mus musculus]       130     3e-32
