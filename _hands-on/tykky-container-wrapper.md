@@ -36,7 +36,7 @@ Create an `env.yml` environment file defining the packages to be installed. Usin
 channels:
   - conda-forge
 dependencies:
-  - python=3.10.8
+  - python=3.14.0
   - scipy
   - pandas
   - nglview
