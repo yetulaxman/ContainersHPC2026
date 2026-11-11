@@ -47,9 +47,6 @@ Hub or Singularity Hub. The possible sources and options are discussed in more d
 Selection of base image depends on the software. If, for example, the software developer provide 
 installation instructions for a certain Linux distribution, it's probably easiest to start with that.
 
-If you plan to build an image with MPI support, it is easiesto start with something close to the host 
-system. In case of Puhti this would be e,g Rocky Linux 8 or some other RHEL 8 based distribution.
-
 In this case we are installing a Python software, so choice of operating systems is not that critical. 
 In this case we'll start with Ubuntu 20.04 definition from Docker Hub.
 
