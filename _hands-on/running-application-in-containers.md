@@ -202,26 +202,11 @@ the container:
    apptainer exec --bind /projappl/<project>:/config tutorial.sif ls /config # replace <project> with your CSC project, e.g. project_2001234
    ```
 
-### Using the `apptainer_wrapper` script
+💡 For convenience, we can use the `csc-common-bind` environment variable, which binds the common disk areas so that we do not have to write them while using `--bind` option 
 
-1. If you use the wrapper script `apptainer_wrapper`, it will automatically
-   take care of the most common bind use cases.
-
-2. You just need to set a `$SING_IMAGE` environment variable to point to the
-   correct Apptainer image file:
-
-   ```bash
-   export SING_IMAGE=$PWD/tutorial.sif
-   apptainer_wrapper exec ls /projappl/<project> # replace <project> with your CSC project, e.g. project_2001234
+```bash
+    apptainer exec --bind="$(csc-common-bind)" container.sif mycommand   # echo $(csc-common-bind) to see the mounted directories on host terminal
    ```
-
-   💡 Note that the image file name is not needed in the `apptainer_wrapper`
-   command since `$SING_IMAGE` is set.
-
-   ‼️ Since some modules set `$SING_IMAGE` when loaded, it is a good idea to
-   start with `module purge` to make sure the correct image is used if you plan
-   to use `apptainer_wrapper`.
-
 ## Environment variables
 
 💬 Some software may require environment variables to be set, e.g., to point to
