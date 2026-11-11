@@ -35,8 +35,8 @@ We have to sometimes prepare custom images to meet our needs either by building 
    terminal. Once we have container id, you are ready to commit the changes as shown below:
 
    ```bash
-   docker ps -a
-   docker commit <container id> fastqc-vim:test   # docker commit 6527b0394bdf  fastqc-vim:test
+   sudo docker ps -a
+   sudo docker commit <container id> fastqc-vim:test   # docker commit 6527b0394bdf  fastqc-vim:test
    ```
    
 4. Push your image to your DockerHub repository (optional)
