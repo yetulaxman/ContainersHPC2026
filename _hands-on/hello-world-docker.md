@@ -13,20 +13,20 @@ In this tutorial, you will learn to:
 
 ## Launch an instance to run Docker commands using play-with-docker(PWD)
 
-## login to pouta virtula machine
+## Login to CSC pouta virtual machine
 
 We have provided a build environment in cPouta for the course.
 
 Start by downloading ssh key:
 
 ```bash
-wget  https://a3s.fi/Containers/archive.zip
+wget  <url>
 ```
 
 Uncompress the file. When prompted, enter password. Password provided in zoom chat.
 
 ```bash
-unzip archive.zip
+unzip xxx
 ```
 
 You can now use the key to login to the pouta . Use "courseX" or "courseXX"  use actual username. Check your username from the table in HedgeDoc.
