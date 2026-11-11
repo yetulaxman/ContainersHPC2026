@@ -13,7 +13,7 @@ In this tutorial, you will learn to:
 
 ## Launch an instance to run Docker commands using play-with-docker(PWD)
 
-## 1. Build system
+## login to pouta virtula machine
 
 We have provided a build environment in cPouta for the course.
 
