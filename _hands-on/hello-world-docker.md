@@ -5,21 +5,39 @@ title: Tutorial1 - Hello-world Docker example
 
 This short tutorial gives you a very brief idea on how docker containers are launched. Although we don't work with docker containers on HPC systems, we will be referring to docker images occasionally as we work with containers. Docker is one of the most popular and matured container platforms and it is thus worth gaining a basic idea on Dockers which will be useful when working with singularity/Apptainer containers later.
 
-> This exercise requires a workstation with docker client installed and thus can't be done in CSC HPC environment.  <a href="http://labs.play-with-docker.com/" target="_blank"> Use PWD terminal</a> instead.
-
 ## Learning Objectives
 In this tutorial, you will learn to: 
-- Launch an instance for Docker environment in Play with Docker
+- Launch an instance for Docker environment in pouta cloud 
 - Spawn a hello-world docker container 
 - Understand the mechanism behind running a docker container
 
 ## Launch an instance to run Docker commands using play-with-docker(PWD)
 
-You need [DockerHub](https://hub.docker.com/) credentials to work with PWD. <a href="http://labs.play-with-docker.com/" target="_blank">In PWD webpage,</a> create a session for this tutorial using your DockerHub credentails. After successful login, click on **+ add new instance** on left side panel and then a terminal should appear on the right. 
+## 1. Build system
+
+We have provided a build environment in cPouta for the course.
+
+Start by downloading ssh key:
+
+```bash
+wget  https://a3s.fi/Containers/archive.zip
+```
+
+Uncompress the file. When prompted, enter password. Password provided in zoom chat.
+
+```bash
+unzip archive.zip
+```
+
+You can now use the key to login to the pouta . Use "courseX" or "courseXX"  use actual username. Check your username from the table in HedgeDoc.
+
+```bash
+ssh courseXX@ip -i course_key
+```
 
 ## Spin up a hello-world Container 
 
-Let’s start with a simple *hello-world* container from [Dockerhub](https://hub.docker.com) which is a docker registry for sharing images. Try running the following command on linux terminal:
+Let’s start with a simple *hello-world* container by running the following command on linux terminal:
 
 ```bash
 docker run hello-world
