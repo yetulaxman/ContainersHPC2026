@@ -15,7 +15,7 @@ We have to sometimes prepare custom images to meet our needs either by building 
    command attaches you with an interactive terminal inside the container as shown below:
    
     ```bash
-    docker container run -it biocontainers/fastqc:v0.11.9_cv7 /bin/sh
+    sudo docker container run -it biocontainers/fastqc:v0.11.9_cv7 /bin/sh
     ```
     > Note: the flags -it are short for -i -t which are the short forms of --interactive (Keep STDIN open) and --tty (allocate a terminal).
 
