@@ -137,7 +137,7 @@ In order to run the container without sudo rights we need to build
 a production image from the sandbox:
 
 ```bash
-apptainer --fakeroot build hmmer.sif hmmer
+apptainer build --fakeroot  hmmer.sif hmmer
 ```
 
 We can now test it.
