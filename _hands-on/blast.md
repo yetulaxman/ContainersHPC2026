@@ -5,20 +5,20 @@ title: Tutorial3 - Analysis with containerised BLAST software
 
 There are many bioinformatics applications available as docker images in  different registries such as [DockerHub](https://hub.docker.com), [Quay Container Registry](https://quay.io) and [Biocontainers](https://biocontainers.pro). Our aim here is to acquire some basic skills to use any containerised application from the registries for our bioinformatics analysis in HPC environment.  These skills greatly empower bioinformaticians with several thousands of containerised applications which can be easily deployed in a reproducible manner. This tutorial provides hands-on experience with one of the popular bioinformatics tools called, [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi) which compares nucleotide or protein sequences to corresponidng sequences in a database and calculates the statistical significance of the matches.
 
-> This tutorial is done on interactive node of **Puhti**, which requires that:
+> This tutorial is done on interactive node of **Roihu**, which requires that:
 - You have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
-- Your account belongs to a project [that has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+- Your account belongs to a project [that has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
 
 ### Expected learning outcome from tutorial:
 After this tutorial, you will be able to: 
 - Search a bioinformatics application (in this case, BLAST) as a docker image from a registry (from Quay.io)
-- Deploy the application as a singularity/apptainer container in Puhti environment interactively
+- Deploy the application as a singularity/apptainer container in Roihu environment interactively
 
 
 ### Run BLAST analysis using an Apptainer container
 
-1. Navigate to your *scratch* folder and launch an interactive terminal on Puhti supercomputer:
+1. Navigate to your *scratch* folder and launch an interactive terminal on Roihu supercomputer:
 
    ```bash 
    cd /scratch/project_xxxx/$USER    # choose your course (or your own) project 
@@ -50,14 +50,20 @@ After this tutorial, you will be able to:
    below:
 
    ```bash
-    curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.1.protein.faa.gz
+    curl -O  https://ftp.ncbi.nlm.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.1.protein.faa.gz
     gunzip mouse.1.protein.faa.gz
     ```
     You need to prepare the mouse database with `makeblastdb` for the search using the following command:
 
     ```bash
-    # mkdir makeblastdb
-    apptainer exec -B $PWD:$PWD blast_quay.sif makeblastdb -in mouse.1.protein.faa -dbtype prot
+    # mkdir makeblastdb on $TMPDIR
+    mkdir -p $TMPDIR/blastdb
+    cp mouse.1.protein.faa $TMPDIR/blastdb/
+    apptainer exec blast_quay.sif \
+      makeblastdb \
+      -in $TMPDIR/blastdb/mouse.1.protein.faa \
+      -dbtype prot
+    cp $TMPDIR/blastdb/mouse.1.protein.faa.p* .
     ```  
     After the container has finished the job, you should see several new files in the current directory.
     
@@ -73,24 +79,18 @@ After this tutorial, you will be able to:
    ```
 
    ```bash
-   
-   Sequences producing significant alignments:                          (Bits)  Value
-
-   XP_036016308.1 protein phosphatase 1B isoform X3 [Mus musculus]       129     3e-32
-   XP_030105454.1 protein phosphatase 1B isoform X3 [Mus musculus]       129     3e-32
-   XP_030105453.1 protein phosphatase 1B isoform X3 [Mus musculus]       129     3e-32
-   XP_006523925.1 protein phosphatase 1B isoform X3 [Mus musculus]       129     3e-32
-   XP_036016307.1 protein phosphatase 1B isoform X2 [Mus musculus]       129     4e-32
-   XP_030105452.1 protein phosphatase 1B isoform X2 [Mus musculus]       129     4e-32
-   XP_036016306.1 protein phosphatase 1B isoform X2 [Mus musculus]       129     4e-32
-   XP_006523924.1 protein phosphatase 1B isoform X2 [Mus musculus]       129     4e-32
-   XP_011244623.1 protein phosphatase 1B isoform X1 [Mus musculus]       130     4e-32
-   XP_011244624.1 protein phosphatase 1B isoform X1 [Mus musculus]       130     4e-32
-   XP_006523923.1 protein phosphatase 1B isoform X1 [Mus musculus]       130     4e-32
-   XP_036013149.1 protein phosphatase 1A isoform X2 [Mus musculus]       128     6e-32
-   XP_036013148.1 protein phosphatase 1A isoform X1 [Mus musculus]       127     3e-31
+ Sequences producing significant alignments:                          (Bits)  Value
+XP_036016308.1 protein phosphatase 1B isoform X3 [Mus musculus]       129     2e-32
+XP_036016306.1 protein phosphatase 1B isoform X2 [Mus musculus]       129     3e-32
+XP_011244624.1 protein phosphatase 1B isoform X1 [Mus musculus]       130     3e-32
+XP_006523923.1 protein phosphatase 1B isoform X1 [Mus musculus]       130     3e-32
+XP_036013149.1 protein phosphatase 1A isoform X2 [Mus musculus]       128     5e-32
+XP_036013148.1 protein phosphatase 1A isoform X1 [Mus musculus]       127     3e-31
+XP_017177640.1 probable protein phosphatase 1N isoform X2 [Mus mu...  111     6e-26
+XP_006539883.1 probable protein phosphatase 1N isoform X1 [Mus mu...  110     2e-25
+XP_006501533.1 protein phosphatase 1L isoform X1 [Mus musculus]       103     3e-24
   
-    ```
+```
   
   You can see that several protein phosphate isoforms from mouse proteins database match with protein phosphatase 1G (as expected)
 
