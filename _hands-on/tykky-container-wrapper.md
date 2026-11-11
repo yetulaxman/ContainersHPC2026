@@ -3,18 +3,16 @@ topic: introduction
 title: Tutorial1 - Tykky container wrapper
 ---
 
-> This tutorial is done on **Puhti**, which requires that:
+> This tutorial is done on **Roihu**, which requires that:
 
 - You have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
-- Your account belongs to a project [that has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
-
-If you are new to CSC supercomputers, please check more on how to [login to Puhti Supercomputer](https://yetulaxman.github.io/ContainersHPC2023/hands-on/ssh-puhti.html)
+- Your account belongs to a project [that has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
 # Tykky container wrapper
 
 CSC provides the [Tykky container wrapper tool](https://docs.csc.fi/computing/containers/tykky/) to build container-based installations on CSC supercomputers. On LUMI there is similar [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). It works by starting with a ready-made container and then does all the installations in a SquashFS filesystem image that gets bound at runtime. 
 
-Tykky also creates wrapper scripts for all the executables in specifed folders, so in most cases usage is identical to natively installed applications.
+Tykky also creates wrapper scripts for all the executables in a specified folders, so in most cases usage is identical to natively installed applications.
 
 Tykky provides commands `conda-containerize`to create manage Conda-based installations, `pip-containerize` for simple pip-based Python installations and `wrap-container` to create wrapper scripts for an existing container.
 
