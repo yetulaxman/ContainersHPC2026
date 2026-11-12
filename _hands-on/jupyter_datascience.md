@@ -24,10 +24,10 @@ While the container images can be pulled and used directly as singularity contai
 
 ```bash
 # Navigate to /projappl area of your course project 
-cd /projappl/project_xxxx/      # Make sure to replace 20xxxx with correct course project number
+cd /projappl/project_xxxx/      # Make sure to replace xxxx with correct course project number
 module purge                      # Clean your environment
 module load tykky                 # load the Tykky container wrapper
-mkdir -p /projappl/project_xxxx/$USER  &&  mkdir -p /projappl/project_20xxxx/$USER/Notebook
+mkdir -p /projappl/project_xxxx/$USER  &&  mkdir -p /projappl/project_xxxx/$USER/Notebook
 # You can use the wrap-container command from tykky module to install image binaries to /projappl
 wrap-container -w /opt/conda/bin docker://docker.io/jupyter/datascience-notebook:x86_64-ubuntu-22.04 --prefix /projappl/project_xxxx/$USER/Notebook
 # This installation can take for a while
