@@ -5,11 +5,11 @@ title: Tutorial3 - Containerised FastQC in Nextflow
 
 # Containerised Nextflow with `FastQC` software
 
-> This tutorial is done on **Puhti**, which requires that:
+> This tutorial is done on **Roihu**, which requires that:
 - You have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
-- Your account belongs to a project [that has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+- Your account belongs to a project [that has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
   
-💬 Containerised applications are highly portable and reproducible for scientific applications. Fortunately, Nextflow smoothly supports integration with popular containers ( e.g., [Docker](https://www.nextflow.io/docs/latest/docker.html) and [Singularity](https://www.nextflow.io/docs/latest/singularity.html)) to provide a light-weight virtualisation layer for running software applications. Please note that you can only work with *Singularity/Apptainer* containers on Puhti as *docker* containers require prevelized access which CSC users **don't** have it on Puhti.
+💬 Containerised applications are highly portable and reproducible for scientific applications. Fortunately, Nextflow smoothly supports integration with popular containers ( e.g., [Docker](https://www.nextflow.io/docs/latest/docker.html) and [Singularity](https://www.nextflow.io/docs/latest/singularity.html)) to provide a light-weight virtualisation layer for running software applications. Please note that you can only work with *Singularity/Apptainer* containers on Roihu as *docker* containers require prevelized access which CSC users **don't** have it on Roihu.
 You will use a [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) analysis tool that involves working with samples from sequencing experiments. Here, you will learn how to:
 - use containers in a Nextflow pipeline
 - run Nextflow pipeline as a batch job
@@ -56,8 +56,9 @@ export APPTAINER_CACHEDIR=/scratch/<project>/$USER
 unset XDG_RUNTIME_DIR
 
 
-# Activate  Nextflow on Puhti
-module load  nextflow/23.04.3
+# Activate  Nextflow on Roihu
+module load  bio-apps
+module load nextflow/25.10.2-standalone
 
 # run nextflow pipeline
 nextflow run fastqc.nf
