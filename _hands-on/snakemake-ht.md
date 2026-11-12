@@ -3,25 +3,25 @@ topic: containers
 title: Tutorial5 - High-throughput Snakemake workflows
 ---
 
-# Running Snakemake workflows at scale on Puhti
+# Running Snakemake workflows at scale on Roihu
 
-> This tutorial is done on **Puhti**, which requires that:
+> This tutorial is done on **Roihu**, which requires that:
 
 - You have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
-- Your account belongs to a project [that has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+- Your account belongs to a project [that has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
 💬 Snakemake is a popular scientific workflow manager, especially within the
 bioinformatics community. The workflow manager enables scalable and
 reproducible scientific pipelines by chaining a series of rules in a
 fully-specified software environment.
-[Snakemake is available as a pre-installed module on Puhti](https://docs.csc.fi/apps/snakemake/).
+[Snakemake is available as a pre-installed module on Roihu](https://docs.csc.fi/apps/snakemake/).
 
 ## Use containers as runtime environment 
 
 💬 HPC-friendly containers like Singularity/Apptainer can be used as an
 alternative to native or Tykky-based installations for better portability and
 reproducibility. If you don't have a ready-made container image for your needs,
-you can build a Singularity/Apptainer image on Puhti using `--fakeroot` option.  
+you can build a Singularity/Apptainer image on Roihu using `--fakeroot` option.  
 
 ☝🏻 For the purpose of this tutorial, a pre-built container image is provided
 later to run Snakemake workflows at scale.
@@ -33,10 +33,10 @@ later to run Snakemake workflows at scale.
 processes, it's advisable to use HyperQueue executor to improve throughput and
 decrease load on the Slurm batch job scheduler.
 
-1. HyperQueue and Snakemake modules on Puhti can be loaded as below:
+1. HyperQueue and Snakemake modules on Roihu can be loaded as below:
    ```bash
-   module load hyperqueue/0.16.0
-   module load snakemake/8.4.6
+   module load hyperqueue/0.25.1
+   module load snakemake/9.11.6
    ```
 
    ‼️ Note! In case you are planning to use Snakemake on LUMI supercomputer, you
@@ -58,9 +58,9 @@ decrease load on the Slurm batch job scheduler.
    snakemake --executor cluster-generic --cluster-generic-submit-cmd "hq submit ..."  
    ```
 
-## Submit a Snakemake workflow on Puhti
+## Submit a Snakemake workflow on Roihu
 
-1. Create and enter a suitable scratch directory on Puhti (replace `<project>`
+1. Create and enter a suitable scratch directory on Roihu (replace `<project>`
    with your CSC project, e.g. `project_2001234`):
 
    ```bash
@@ -75,10 +75,11 @@ decrease load on the Slurm batch job scheduler.
    ```bash
    wget https://a3s.fi/snakemake_scale/snakemake_scaling.tar.gz
    tar -xavf snakemake_scaling.tar.gz
+   cd snakemake_scaling
    ```
 
 3. The downloaded material includes scripts and data to run a Snakemake
-   pipeline. You can use `snakemake_hq_puhti.sh`, the contents of which are
+   pipeline. Instead of the included scripts, create `snakemake_hq_roihu.sh` with the contents
    posted below:
 
    ```bash 
@@ -92,8 +93,8 @@ decrease load on the Slurm batch job scheduler.
    #SBATCH --cpus-per-task=40
    #SBATCH --mem-per-cpu=2G
    
-   module load hyperqueue/0.16.0
-   module load snakemake/8.4.6
+   module load hyperqueue/0.25.1
+   module load snakemake/9.11.6
    
    # Specify a location for the HyperQueue server
    export HQ_SERVER_DIR=${PWD}/hq-server-${SLURM_JOB_ID}
@@ -110,7 +111,7 @@ decrease load on the Slurm batch job scheduler.
    snakemake -s Snakefile --jobs 1 --use-singularity --executor cluster-generic --cluster-generic-submit-cmd "hq submit --cpus 5"
    
    # For Snakemake versions 7.x.x, use command:
-   # snakemake -s Snakefile --jobs 1 --use-singularity --cluster "hq submit --cpus 5"
+   # snakemake -s Snakefile --jobs 1 --use-singularity --cluster "hq submit --cpus 4"
    
    # Wait for all jobs to finish, then shut down the workers and server
    hq job wait all
@@ -131,21 +132,21 @@ meta-scheduler.
    snakemake -s Snakefile --jobs 8 --use-singularity --executor cluster-generic --cluster-generic-submit-cmd "hq submit --cpus 5"
    ``` 
 
-2. Replace the above modification in the `snakemake_hq_puhti.sh` batch script
+2. Replace the above modification in the `snakemake_hq_roihu.sh` batch script
    (and use your own project number) before submitting the Snakemake workflow
    job with:
 
    ```
-   sbatch snakemake_hq_puhti.sh
+   sbatch snakemake_hq_roihu.sh
    ```
 
 ☝🏻 Note that just increasing the value of `--jobs` will not automatically make
 all those jobs run at the same time. This option of the `snakemake` command is
 just a maximum limit for the number of concurrent jobs. Jobs will eventually
 run when resources are available. In this case, we run 8 concurrent jobs, each
-using 5 CPU cores to match the reserved 40 CPU cores (one Puhti node) in the
-batch script. In practice, it is also a good idea to dedicate a few cores for
-the workflow manager itself.
+using 5 CPU cores to match the reserved 40 CPU cores in the batch script.
+In practice, it is also a good idea to dedicate a few cores
+for the workflow manager itself.
 
 💡 It is also possible to use more than one node to achieve even higher
 throughput as HyperQueue can make use of multi-node resource allocations.
@@ -192,7 +193,7 @@ You can prevent the creation of such task-specific folders by setting `stdout`
 and `stderr` HyperQueue flags to `none` as shown below:
 
 ```bash
-snakemake -s Snakefile -j 24 --use-singularity --executor cluster-generic --cluster-generic-submit-cmd "hq submit --stdout=none --stderr=none --cpus 5"
+snakemake -s Snakefile -j 8 --use-singularity --executor cluster-generic --cluster-generic-submit-cmd "hq submit --stdout=none --stderr=none --cpus 5"
 ```
 
 ## More Information
