@@ -34,7 +34,7 @@ Lanuch an [interactive session](https://docs.csc.fi/computing/running/interactiv
 ```
 sinteractive -c 2 -m 4G -d 250 -A project_2xxxx  # replace actual project number here
 module load bio-apps
-module load nextflow # Load nextflow module
+nextflow/25.10.2-standalone # Load nextflow module
 ```
 ‼️ Please note that one has to load a module (in this case nextflow) with a version. Otherwise, the latest version of stable module installed at that point is used. For the reproducibility point of view, make sure to load versions of all tools including the nextflow module.
 
