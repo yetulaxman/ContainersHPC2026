@@ -40,8 +40,8 @@ Upon succesful installation, the executables of the Jupyter notebook will be ava
 
 You can download an example Python notebook to perform basic data analysis tasks inside the installed Jupyter notebook as below: 
 ```bash
-cd /scratch/project_200xxxx/$USER
-wget https://a3s.fi/biocontainers2025/course_notebook.tar.gz
+cd /scratch/project_xxxx/$USER
+wget https://a3s.fi/biocontainers2026/course_notebook.tar.gz
 tar -xavf course_notebook.tar.gz
 ```
 
@@ -57,11 +57,11 @@ tar -xavf course_notebook.tar.gz
     Local disk: 0  
     Time: 0:45:00  
     Python: custom path  
-    Custom Python interpreter: /projappl/project_2003682/$USER/Notebook/bin/python  (replace $USER with your CSC username)
+    Custom Python interpreter: /projappl/project_xxxx/$USER/Notebook/bin/python  (replace project_xxxx and $USER with actual names)
     Working directory: /scratch/project_xxxx/  
     and finally "Launch" notebook  
    
- 5. This may take a while before seeing "Connect to Jupyter" button upon successful launching of notebook. Once Jupyter notebook is opened, navigate to your own $USER area (under /scratch/project_200xxxx/) where you have downloaded Python notebook earlier. Finally, click "explore_datascience.ipynb" to open a Python notebook on your browser.
+ 5. This may take a while before seeing "Connect to Jupyter" button upon successful launching of notebook. Once Jupyter notebook is opened, navigate to your own $USER area (under /scratch/project_xxxx/) where you have downloaded Python notebook earlier. Finally, click "explore_datascience.ipynb" to open a Python notebook on your browser.
 
 
 ###  Useful CSC documentation
