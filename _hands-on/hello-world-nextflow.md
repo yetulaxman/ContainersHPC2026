@@ -8,7 +8,7 @@ Running and managing workflows for bioinformatics applications can be challengin
 
 > This tutorial is done on Roihu, which requires that:
    - you have a user account at CSC
-   - your account belongs to a project that has access to the Puhti service.
+   - your account belongs to a project that has access to the Roihu service.
 
 
 ## Learning Objectives
@@ -19,9 +19,9 @@ Upon completion of these tutorials in course, you will be able to learn:
 
 
 ## Setup your work environment for tutorials on Roihu
-This hands-on tutorial uses Puhti supercomputer for executing Nextflow scripts for interactive and batch jobs. One therefore needs to have either a training or user account at CSC to access Puhti.
+This hands-on tutorial uses Roihu supercomputer for executing Nextflow scripts for interactive and batch jobs. One therefore needs to have either a training or user account at CSC to access Roihu.
 
-Login to Puhti using `ssh` command followed by making a work directory named `nextflow_tutorial` on *scratch* drive as shown below: 
+Login to Roihu using `ssh` command followed by making a work directory named `nextflow_tutorial` on *scratch* drive as shown below: 
 
 ```nextflow
 ssh <your_csc_username>@roihu.csc.fi
@@ -30,7 +30,7 @@ mkdir -p  /scratch/project_xxxx/$USER/nextflow_tutorial && cd /scratch/project_x
 
 ### Start an interactive session on Roihu
 
-Lanuch an [interactive session](https://docs.csc.fi/computing/running/interactive-usage/) on Puhti as below:
+Lanuch an [interactive session](https://docs.csc.fi/computing/running/interactive-usage/) on Roihu as below:
 ```
 sinteractive -c 2 -m 4G -d 250 -A project_2xxxx  # replace actual project number here
 module load bio-apps
@@ -74,7 +74,7 @@ workflow {
 
 ```
 
- Execute the script by entering the following command on your interactive Puhti terminal: 
+ Execute the script by entering the following command on your interactive Roihu terminal: 
 
 ```nextflow
 nextflow run hello-world.nf
