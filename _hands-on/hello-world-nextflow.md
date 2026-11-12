@@ -3,10 +3,10 @@ topic: containers
 title: Tutorial2 - Hello-world Nextflow example
 ---
 
-# Hello-world Nextflow tutorial on Puhti Supercomputer
+# Hello-world Nextflow tutorial on Roihu Supercomputer
 Running and managing workflows for bioinformatics applications can be challenging as the workflows usually are fragile eco-systems of several software tools and their dependencies. We therefore need a workflow manager like Nextflow to manage our scientific workflow. 
 
-> This tutorial is done on Puhti, which requires that:
+> This tutorial is done on Roihu, which requires that:
    - you have a user account at CSC
    - your account belongs to a project that has access to the Puhti service.
 
@@ -18,22 +18,23 @@ Upon completion of these tutorials in course, you will be able to learn:
 - The inspection of results
 
 
-## Setup your work environment for tutorials on Puhti
+## Setup your work environment for tutorials on Roihu
 This hands-on tutorial uses Puhti supercomputer for executing Nextflow scripts for interactive and batch jobs. One therefore needs to have either a training or user account at CSC to access Puhti.
 
 Login to Puhti using `ssh` command followed by making a work directory named `nextflow_tutorial` on *scratch* drive as shown below: 
 
 ```nextflow
-ssh <your_csc_username>@puhti.csc.fi
+ssh <your_csc_username>@roihu.csc.fi
 mkdir -p  /scratch/project_xxxx/$USER/nextflow_tutorial && cd /scratch/project_xxxx/$USER/nextflow_tutorial 
 ```
 
-### Start an interactive session on Puhti
+### Start an interactive session on Roihu
 
 Lanuch an [interactive session](https://docs.csc.fi/computing/running/interactive-usage/) on Puhti as below:
 ```
 sinteractive -c 2 -m 4G -d 250 -A project_2xxxx  # replace actual project number here
-module load nextflow/23.04.3                     # Load nextflow module
+module load bio-apps
+module load nextflow # Load nextflow module
 ```
 ‼️ Please note that one has to load a module (in this case nextflow) with a version. Otherwise, the latest version of stable module installed at that point is used. For the reproducibility point of view, make sure to load versions of all tools including the nextflow module.
 
@@ -42,31 +43,32 @@ module load nextflow/23.04.3                     # Load nextflow module
 This "Hello-world" minimalist example demonstrates the basic syntax of Nextflow for a process. In this tutorial, you will learn how to run a Nextflow script as well as understand the default location of resulting output files. Copy the below script to a file named, hello-world.nf
 
 ```nextflow
-#!/usr/bin/env nextflow
-  
-greets = Channel.fromList(["Moi", "Ciao", "Hello", "Hola","Bonjour"])
-
-/*
- * Use echo to print 'Hello !' in different languages to a file
- */
+nextflow.enable.dsl=2
 
 process sayHello {
 
-  input:
+    input:
     val greet
 
-  output:
+    output:
     path "${greet}.txt"
 
-  script:
+    script:
     """
-    echo ${greet} > ${greet}.txt
+    echo "${greet}" > ${greet}.txt
     """
 }
 
 workflow {
 
-    // Print  a greeting
+    greets = Channel.fromList([
+        "Moi",
+        "Ciao",
+        "Hello",
+        "Hola",
+        "Bonjour"
+    ])
+
     sayHello(greets)
 }
 
