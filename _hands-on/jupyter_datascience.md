@@ -24,17 +24,17 @@ While the container images can be pulled and used directly as singularity contai
 
 ```bash
 # Navigate to /projappl area of your course project 
-cd /projappl/project_20xxxx/      # Make sure to replace 20xxxx with correct course project number
+cd /projappl/project_xxxx/      # Make sure to replace 20xxxx with correct course project number
 module purge                      # Clean your environment
 module load tykky                 # load the Tykky container wrapper
-mkdir -p /projappl/project_20xxxx/$USER  &&  mkdir -p /projappl/project_20xxxx/$USER/Notebook
+mkdir -p /projappl/project_xxxx/$USER  &&  mkdir -p /projappl/project_20xxxx/$USER/Notebook
 # You can use the wrap-container command from tykky module to install image binaries to /projappl
-wrap-container -w /opt/conda/bin docker://docker.io/jupyter/datascience-notebook:x86_64-ubuntu-22.04 --prefix /projappl/project_200xxxx/$USER/Notebook
+wrap-container -w /opt/conda/bin docker://docker.io/jupyter/datascience-notebook:x86_64-ubuntu-22.04 --prefix /projappl/project_xxxx/$USER/Notebook
 # This installation can take for a while
 # The -w option specifies the installation directory inside the container. For this data science container image, path is /opt/conda/bin
 # The --prefix option specifies the directory where we want to install the software on the host system.
 ```
-Upon succesful installation, the executables of the Jupyter notebook will be available in the directory /projappl/project_200xxxx/$USER/Notebook/bin. 
+Upon succesful installation, the executables of the Jupyter notebook will be available in the directory /projappl/project_xxxx/$USER/Notebook/bin. 
 
 ## Download a simple Python notebook for testing the installed environment
 
@@ -50,7 +50,7 @@ tar -xavf course_notebook.tar.gz
 1. Login to [Roihu web interface](https://www.Roihu.csc.fi)
 2. Login with CSC/HAKA/VIRTU credentials plus MFA 
 3. Once login is successful, select "Jupyter" icon from the pinned apps on the landing page.  Then open the Jupyter notebook and use the following settings: 
-    Project: project_2003682  
+    Project: project_xxxxx  
     Partition: small  
     Number of CPU cores: 2  
     Memory (Gb): 2  
@@ -58,7 +58,7 @@ tar -xavf course_notebook.tar.gz
     Time: 0:45:00  
     Python: custom path  
     Custom Python interpreter: /projappl/project_2003682/$USER/Notebook/bin/python  (replace $USER with your CSC username)
-    Working directory: /scratch/project_2003682/  
+    Working directory: /scratch/project_xxxx/  
     and finally "Launch" notebook  
    
  5. This may take a while before seeing "Connect to Jupyter" button upon successful launching of notebook. Once Jupyter notebook is opened, navigate to your own $USER area (under /scratch/project_200xxxx/) where you have downloaded Python notebook earlier. Finally, click "explore_datascience.ipynb" to open a Python notebook on your browser.
