@@ -24,7 +24,7 @@ mkdir -p /scratch/<project>/$USER
 cd /scratch/<project>/$USER
 
 # Download and unpack your tutorial material
-wget https://a3s.fi/nextflow/fastqc_nextflow.tar.gz
+wget https://a3s.fi/biocontainers2026/fastqc_nextflow.tar.gz
 tar -xavf fastqc_nextflow.tar.gz && rm fastqc_nextflow.tar.gz
 ```
 
@@ -49,8 +49,8 @@ Let's use a batch script to submit the Nextflow job to the cluster. If you are d
 #SBATCH --mem-per-cpu=4000
 
 # Let's use the scratch area for temporary and cache storage
-export APPTAINER_TMPDIR=/scratch/<project>/$USER
-export APPTAINER_CACHEDIR=/scratch/<project>/$USER
+export APPTAINER_TMPDIR=$TMPDIR
+export APPTAINER_CACHEDIR=$TMPDIR
 
 # This is just to avoid some annoying warnings
 unset XDG_RUNTIME_DIR
