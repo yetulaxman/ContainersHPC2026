@@ -7,7 +7,7 @@ title: Tutorial5 - High-throughput Snakemake workflows
 
 > This tutorial is done on **Roihu**, which requires that:
 
-- You have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
+- You have set up [SSH keys and certificates on Roihu](https://docs.csc.fi/computing/connecting/ssh-keys/)
 - Your account belongs to a project [that has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
 💬 Snakemake is a popular scientific workflow manager, especially within the
@@ -36,16 +36,8 @@ decrease load on the Slurm batch job scheduler.
 1. HyperQueue and Snakemake modules on Roihu can be loaded as below:
    ```bash
    module load hyperqueue/0.25.1
-   module load snakemake/9.11.6
-   ```
-
-   ‼️ Note! In case you are planning to use Snakemake on LUMI supercomputer, you
-   can use CSC module installations as below:
-
-   ```bash
-   module use /appl/local/csc/modulefiles/
-   module load hyperqueue/0.18.0
-   module load snakemake/8.4.6
+   module load bip-apps
+   module load snakemake/9.14.0
    ```
 
 2. HyperQueue executor settings for a Snakemake workflow can be changed
@@ -54,7 +46,7 @@ decrease load on the Slurm batch job scheduler.
    ```bash
    # snakemake version 7.x.x
    snakemake --cluster "hq submit  ..."
-   # snakemake version 8.x.x
+   # snakemake version 8.x.x or 9.x.x
    snakemake --executor cluster-generic --cluster-generic-submit-cmd "hq submit ..."  
    ```
 
@@ -90,11 +82,12 @@ decrease load on the Slurm batch job scheduler.
    #SBATCH --time=00:10:00
    #SBATCH --nodes=1
    #SBATCH --ntasks-per-node=1
-   #SBATCH --cpus-per-task=40
+   #SBATCH --cpus-per-task=80
    #SBATCH --mem-per-cpu=2G
    
    module load hyperqueue/0.25.1
-   module load snakemake/9.11.6
+   module load bio-apps
+   module load snakemake/9.14.0
    
    # Specify a location for the HyperQueue server
    export HQ_SERVER_DIR=${PWD}/hq-server-${SLURM_JOB_ID}
@@ -193,7 +186,7 @@ You can prevent the creation of such task-specific folders by setting `stdout`
 and `stderr` HyperQueue flags to `none` as shown below:
 
 ```bash
-snakemake -s Snakefile -j 8 --use-singularity --executor cluster-generic --cluster-generic-submit-cmd "hq submit --stdout=none --stderr=none --cpus 5"
+snakemake -s Snakefile -j 8 --use-singularity --executor cluster-generic --cluster-generic-submit-cmd "hq submit --stdout=none --stderr=none --cpus 10"
 ```
 
 ## More Information
