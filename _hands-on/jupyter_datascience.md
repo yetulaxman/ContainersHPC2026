@@ -5,15 +5,15 @@ title: Tutorial1 - Launch custom Jupyter notebook
 
 # Launching a custom Jupyter notebook from a pre-built container image
 
-> This tutorial is done on **Puhti and its web interface**, which requires that:
+> This tutorial is done on **Roihu and its web interface**, which requires that:
 
-- You have a [user account with SSH keys set up on Puhti](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
-- Your account belongs to a project [that has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+- You have a [user account with SSH keys/certificates set up on Roihu](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
+- Your account belongs to a project [that has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
 
 💬 In this tutorial, you will learn how to:
   - Install Jupyter notebook based on a pre-existing docker image from a docker registry.
-  - Launch the Jupyter notebook from [Puhti Web Interface](https://www.puhti.csc.fi/public/).
+  - Launch the Jupyter notebook from [Roihu Web Interface](https://www.Roihu.csc.fi/public/).
     
 ## Search a data science notebook image from a Docker registry
 
@@ -45,9 +45,9 @@ wget https://a3s.fi/biocontainers2025/course_notebook.tar.gz
 tar -xavf course_notebook.tar.gz
 ```
 
-## Launch the installed Jupyter notebook from the Puhti web interface
+## Launch the installed Jupyter notebook from the Roihu web interface
 
-1. Login to [Puhti web interface](https://www.puhti.csc.fi)
+1. Login to [Roihu web interface](https://www.Roihu.csc.fi)
 2. Login with CSC/HAKA/VIRTU credentials plus MFA 
 3. Once login is successful, select "Jupyter" icon from the pinned apps on the landing page.  Then open the Jupyter notebook and use the following settings: 
     Project: project_2003682  
