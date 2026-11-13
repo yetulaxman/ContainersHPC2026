@@ -65,7 +65,7 @@ decrease load on the Slurm batch job scheduler.
    from Allas:
 
    ```bash
-   wget https://a3s.fi/snakemake_scale/snakemake_scaling.tar.gz
+   wget https://a3s.fi/biocontainers2026/snakemake_scaling.tar.gz
    tar -xavf snakemake_scaling.tar.gz
    cd snakemake_scaling
    ```
