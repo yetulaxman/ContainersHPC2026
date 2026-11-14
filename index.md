@@ -30,8 +30,8 @@ author: CSC Training
 
 
 ## 3. Working with Docker Containers 
-### Slides: [Basic introduction to Docker containers](https://a3s.fi/biocontainers2025/intro_docker_2025.html)
-### Slides: [Working with containerised applications](https://a3s.fi/biocontainers2025/containerised_applications_2025.html)
+### Slides: [Basic introduction to Docker containers](https://a3s.fi/biocontainers2026/intro_docker_2026.html)
+### Slides: [Working with containerised applications](https://a3s.fi/biocontainers2026/containerised_applications_2026.html)
 
 ###  Tutorials and exercises
 {% for hands-on in items %}
@@ -41,9 +41,9 @@ author: CSC Training
 {% endfor %}
 
 ## 4. Containers in web applications and workflows
-### Slides: [Rstudio and Jupyter Notebooks](https://a3s.fi/biocontainers2025/notebooks_2025.html)
-### Slides: [Brief Introduction to Bio-workflows](https://a3s.fi/biocontainers2025/intro_workflows_2025.html)
-### Slides: [Running Nextflow and Snakemake workflows at CSC](https://a3s.fi/biocontainers2025/running_workflows_2025.html)
+### Slides: [Rstudio and Jupyter Notebooks](https://a3s.fi/biocontainers2026/notebooks_2026.html)
+### Slides: [Brief Introduction to Bio-workflows](https://a3s.fi/biocontainers2026/intro_workflows_2026.html)
+### Slides: [Running Nextflow and Snakemake workflows at CSC](https://a3s.fi/biocontainers2026/running_workflows_2026.html)
 ###  Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'containers' %}
