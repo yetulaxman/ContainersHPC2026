@@ -49,21 +49,13 @@ After this tutorial, you will be able to:
    This is a FASTA sequence for a mouse protein.  You'll also need a reference database to BLAST against and the database can be downloaded from the link as shown
    below:
 
-   ```bash
+    ```bash
     curl -O  https://ftp.ncbi.nlm.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.1.protein.faa.gz
     gunzip mouse.1.protein.faa.gz
     ```
     You need to prepare the mouse database with `makeblastdb` for the search using the following command:
-
     ```bash
-    # mkdir makeblastdb on $TMPDIR
-    mkdir -p $TMPDIR/blastdb
-    cp mouse.1.protein.faa $TMPDIR/blastdb/
-    apptainer exec blast_quay.sif \
-      makeblastdb \
-      -in $TMPDIR/blastdb/mouse.1.protein.faa \
-      -dbtype prot
-    cp $TMPDIR/blastdb/mouse.1.protein.faa.p* .
+       apptainer exec -B $PWD:$PWD blast_quay.sif makeblastdb -in mouse.1.protein.faa -dbtype prot
     ```  
     After the container has finished the job, you should see several new files in the current directory.
     
