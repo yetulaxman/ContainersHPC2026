@@ -7,7 +7,7 @@ author: CSC Training
 
 ## 1. Introduction to HPC Containers
 ### Slides: [Brief Introduction to CSC HPC Environments](https://a3s.fi/biocontainers2025/CSC_HPC_Systems.html)
-### Slides: [Introduction to Apptainer containers](https://a3s.fi/biocontainers2025/Introduction_to_containers.html)
+### Slides: [Introduction to Apptainer containers](https://a3s.fi/biocontainers2026/Introduction_to_containers.html)
 ### Slides: [Tykky Container Wrapper](https://a3s.fi/biocontainers2026/tykky_wrapper.html)
 
 ###  Tutorials and exercises
