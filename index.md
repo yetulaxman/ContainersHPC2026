@@ -4,7 +4,6 @@ author: CSC Training
 ---
 
 {% assign items = site.hands-on |  sort: "title" %}
-
 ## 1. Introduction to HPC Containers
 ### Slides: [Brief Introduction to CSC HPC Environments](https://a3s.fi/biocontainers2026/hpc_intro.html)
 ### Slides: [Introduction to Apptainer containers](https://a3s.fi/biocontainers2026/Intrdocution_to_containers.html)
