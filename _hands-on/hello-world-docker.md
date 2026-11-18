@@ -3,15 +3,15 @@ topic: docker
 title: Tutorial1 - Hello-world Docker example
 ---
 
-This short tutorial gives you a very brief idea on how docker containers are launched. Although we don't work with docker containers on HPC systems, we will be referring to docker images occasionally as we work with containers. Docker is one of the most popular and matured container platforms and it is thus worth gaining a basic idea on Dockers which will be useful when working with singularity/Apptainer containers later.
+This short tutorial gives you a very brief idea on how docker containers are launched. Although Docker is not typically used to run workloads on HPC systems, Docker images are commonly used as the starting point for building and distributing scientific containers. Understanding the basics of Docker will therefore make it easier to work with Apptainer containers later in this course. Docker is one of the most widely used and mature container platforms and provides a useful introduction to container concepts that also apply to Apptainer.
 
 ## Learning Objectives
 In this tutorial, you will learn to: 
-- Launch an instance for Docker environment in pouta cloud 
-- Spawn a hello-world docker container 
-- Understand the mechanism behind running a docker container
+ - Launch a simple Docker container using the hello-world image
+ - Explain the difference between a container image and a running container
+ - Understand what happens behind the scenes when a Docker container is created and executed
 
-## Login to CSC pouta virtual machine
+## Connnect to course VM
 
 We have provided a build environment in cPouta for the course.
 
@@ -27,13 +27,13 @@ Uncompress the file. When prompted, enter password. Password provided in zoom ch
 unzip xxx
 ```
 
-You can now use the key to login to the pouta . Use "courseX" or "courseXX"  use actual username. Check your username from the table in HedgeDoc.
+You can now use the key to login to the pouta. Replace courseXX with your assigned course username (see the HedgeDoc document).
 
 ```bash
-ssh courseXX@ip -i course_key
+ssh  -i course_key courseXX@<VM-IP-address>
 ```
 
-## Spin up a hello-world Container 
+## Launch a hello-world Container 
 
 Let’s start with a simple *hello-world* container by running the following command on linux terminal:
 
