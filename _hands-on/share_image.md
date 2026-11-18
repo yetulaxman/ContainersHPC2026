@@ -7,7 +7,7 @@ We have to sometimes prepare custom images to meet our needs either by building 
 
 > This exercise requires a workstation with docker client installed. So please login to pouta VM
 
-## Sharing docker image via DcokerHub
+## Modifying and sharing docker image via DcokerHub
 
 1. Deploy FastQC Container
 
