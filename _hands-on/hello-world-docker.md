@@ -11,8 +11,6 @@ In this tutorial, you will learn to:
 - Spawn a hello-world docker container 
 - Understand the mechanism behind running a docker container
 
-## Launch an instance to run Docker commands using play-with-docker(PWD)
-
 ## Login to CSC pouta virtual machine
 
 We have provided a build environment in cPouta for the course.
