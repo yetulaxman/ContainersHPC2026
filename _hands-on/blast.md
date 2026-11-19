@@ -5,7 +5,7 @@ title: Tutorial3 - Analysis with containerised BLAST software
 
 There are many bioinformatics applications available as docker images in  different registries such as [DockerHub](https://hub.docker.com), [Quay Container Registry](https://quay.io) and [Biocontainers](https://biocontainers.pro). Our aim here is to acquire some basic skills to use any containerised application from the registries for our bioinformatics analysis in HPC environment.  These skills greatly empower bioinformaticians with several thousands of containerised applications which can be easily deployed in a reproducible manner. This tutorial provides hands-on experience with one of the popular bioinformatics tools called, [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi) which compares nucleotide or protein sequences to corresponidng sequences in a database and calculates the statistical significance of the matches.
 
-> This tutorial is done on interactive node of **Roihu**, which requires that:
+> This tutorial is done on interactive node of CPU partition in **Roihu**, which requires that:
 - You have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
 - Your account belongs to a project [that has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
@@ -18,9 +18,10 @@ After this tutorial, you will be able to:
 
 ### Run BLAST analysis using an Apptainer container
 
-1. Navigate to your *scratch* folder and launch an interactive terminal on Roihu supercomputer:
+1. Log in to the CPU partition, navigate to your scratch directory, and launch an interactive session on the Roihu supercomputer:
 
-   ```bash 
+   ```bash
+   ssh cscusername@roihu-cpu.csc.fi   # login with csc credentials
    cd /scratch/project_xxxx/$USER    # choose your course (or your own) project 
    mkdir -p BLAST && cd BLAST        #  create a separate folder for this analysis
    sinteractive -c 2 -m 4G -d 100    # choose project number upon terminal prompt
