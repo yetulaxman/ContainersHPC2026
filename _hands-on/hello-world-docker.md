@@ -38,7 +38,7 @@ ssh  -i course_key courseXX@<VM-IP-address>
 Let’s start with a simple *hello-world* container by running the following command on linux terminal:
 
 ```bash
-sudo docker run hello-world
+ docker run hello-world
 ```
 When a `docker run` command is issued *via* commandline interface (CLI), docker client contacts Docker daemon to check whether an image named, "hello-world" exists locally. If the image is not found locally, docker daemon pulls "hello-world" official image from DockerHub. Once docker image is available locally, `docker run` command creates a new container from that image.
 
