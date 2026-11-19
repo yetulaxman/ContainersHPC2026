@@ -15,7 +15,7 @@ We have to sometimes prepare custom images to meet our needs either by building 
    command attaches you with an interactive terminal inside the container as shown below:
    
     ```bash
-    sudo docker container run -it biocontainers/fastqc:v0.11.9_cv7 /bin/sh
+     docker container run -it biocontainers/fastqc:v0.11.9_cv7 /bin/sh
     ```
     > Note: the flags -it are short for -i -t which are the short forms of --interactive (Keep STDIN open) and --tty (allocate a terminal).
 
@@ -35,8 +35,8 @@ We have to sometimes prepare custom images to meet our needs either by building 
    terminal. Once we have container id, you are ready to commit the changes as shown below:
 
    ```bash
-   sudo docker ps -a
-   sudo docker commit <container id> fastqc-vim:test   # docker commit 6527b0394bdf  fastqc-vim:test
+        docker ps -a
+       docker commit <container id> fastqc-vim:test   # docker commit 6527b0394bdf  fastqc-vim:test
    ```
    
 4. Push your image to your DockerHub repository (optional)
@@ -47,7 +47,7 @@ We have to sometimes prepare custom images to meet our needs either by building 
    Before pushing your docker image to DockerHub,  you just need to rename docker image to your namespace/account first using `docker tag` command as below:
 
    ```bash
-     sudo docker tag <image id> your-dockerhub-user-name/repo-name[:tag]   # find <image id> corresponding to repository, fastqc-vim  by typing `docker images` command
+     docker tag <image id> your-dockerhub-user-name/repo-name[:tag]   # find <image id> corresponding to repository, fastqc-vim  by typing `docker images` command
      on host machine. e.g., command: docker tag f689b999263b your-dockerhub-user-name/fastqc-vim:test 
    ```
     All images should be tagged with an appropriate prefix to repository name before pushing an image.
@@ -55,8 +55,8 @@ We have to sometimes prepare custom images to meet our needs either by building 
     Push your image finally as below:
  
    ```bash
-     sudo  docker login -u <username> # authenticate yourself using DockerHub credentials
-     sudo docker push your-dockerhub-user-name/repo-name[:tag]  # docker push your-dockerhub-user-name/fastqc-vim:test
+       docker login -u <username> # authenticate yourself using DockerHub credentials
+       docker push your-dockerhub-user-name/repo-name[:tag]  # docker push your-dockerhub-user-name/fastqc-vim:test
    ```
    Once the push  to repository is successful, your image is now available for everyone to use. Go to your profile page on the DockerHub  to view  your new docker 
     image.
