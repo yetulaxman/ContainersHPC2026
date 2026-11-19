@@ -48,15 +48,15 @@ We have to sometimes prepare custom images to meet our needs either by building 
 
    ```bash
      docker tag <image id> your-dockerhub-user-name/repo-name[:tag]   # find <image id> corresponding to repository, fastqc-vim  by typing `docker images` command
-     on host machine. e.g., command: docker tag f689b999263b your-dockerhub-user-name/fastqc-vim:test 
+     on host machine. e.g., command: docker tag f689b999263b your-dockerhub-user-name/fastqc-vim:<userX> 
    ```
     All images should be tagged with an appropriate prefix to repository name before pushing an image.
 
     Push your image finally as below:
  
    ```bash
-       docker login -u <username> # authenticate yourself using DockerHub credentials
-       docker push your-dockerhub-user-name/repo-name[:tag]  # docker push your-dockerhub-user-name/fastqc-vim:test
+       docker login  # follow one-time device-code flow and authenticate yourself using DockerHub credentials
+       docker push your-dockerhub-user-name/repo-name[:tag]  # docker push your-dockerhub-user-name/fastqc-vim:<userX>
    ```
    Once the push  to repository is successful, your image is now available for everyone to use. Go to your profile page on the DockerHub  to view  your new docker 
     image.
