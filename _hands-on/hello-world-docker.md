@@ -13,21 +13,23 @@ In this tutorial, you will learn to:
 
 ## Connnect to course VM
 
-We have provided a build environment in cPouta for the course.
+We have provided a Docker environment in cPouta for this course. The cPouta virtual machine can be accessed from the Roihu CPU login nodes. First, log in to Roihu:
 
+```bash
+ssh cscusername@roihu-cpu.csc.fi. # replace with your own csc user name
+```
 Start by downloading ssh key:
 
 ```bash
 wget  <url>
 ```
-
-Uncompress the file. When prompted, enter password. Password provided in zoom chat.
+Extract the file and enter the password provided during the course when prompted
 
 ```bash
 unzip xxx
 ```
 
-You can now use the key to login to the pouta. Replace courseXX with your assigned course username (see the HedgeDoc document).
+You can now use the SSH key to log in to the cPouta virtual machine. Replace courseXX with the course username assigned to you for the cPouta machine (see the HedgeDoc document for your assigned username).
 
 ```bash
 ssh  -i course_key courseXX@<VM-IP-address>
