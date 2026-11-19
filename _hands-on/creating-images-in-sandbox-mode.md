@@ -1,6 +1,6 @@
 ---
 topic: apptainer
-title: Tutorial3(bonus) - Building Apptainer container images in sandbox mode (Bonus tutorial)
+title: Tutorial3(bonus) - Building Apptainer container images in sandbox mode
 ---
 
 # Building Apptainer containers in sandbox mode
