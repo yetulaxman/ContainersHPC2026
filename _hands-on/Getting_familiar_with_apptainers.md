@@ -63,7 +63,6 @@ apptainer exec tutorial.sif grep "^NAME" /etc/os-release
 Create a file called `test.sh`:
 
 ```bash
-module load nano    # The compute nodes do not have nano available by default
 nano test.sh
 ```
 
@@ -202,7 +201,7 @@ current directory:
    💡 You can use `--bind` to set the container, for example, to find input
    data or configuration files from a certain directory.
 
-6. Bind a host directory in `/projappl` to a directory called `/config` indide
+6. Bind a host directory in `/projappl` to a directory called `/config` inside
 the container:
 
    ```bash
