@@ -86,7 +86,18 @@ export PATH="/projappl/<project>/$USER/nglview/bin:$PATH"    # replace <project>
 
 ## Creating wrappers to an existing container
 
-Tykky can also be used to create the wrapper script for an existing container.
+Tykky can generate lightweight wrapper scripts for applications already available in Apptainer/Singularity containers. This allows you to run containerized tools just like locally installed software, without having to prepend commands with apptainer exec or modify existing scripts.
+
+### Basic Usage
+```bash
+wrap-container -w /path/inside/container <container> --prefix <install_dir>
+```
+Parameters:
+ -  `<container>`: A local container file or any container source supported by Apptainer, for example: docker://biocontainers/fastqc
+ - -w: Absolute path (or comma-separated list of paths) inside the container containing the executable(s) to wrap.
+ - --prefix: Directory where the generated wrappers will be installed.
+
+### Example: Installing `nglview` from Docker Hub
 
 For example instead of installing `nglview` with `conda-containerize`, we could pull it from Docke Hub. (In case of nglview the version in Docker Hub is very old, so you probably would not want to use it in real life.)
 
