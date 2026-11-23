@@ -6,7 +6,8 @@ title: Tutorial1 - Tykky container wrapper
 > This tutorial is done on **Roihu**, which requires that:
 
 - You have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
-- Your account belongs to a project [that has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+- Your account belongs to a project [that has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/)
+-  You are able to login to Roihu
 
 # Tykky container wrapper
 
@@ -20,6 +21,15 @@ You can also use `conda-containerize new` to set up the basic environment and th
 
 Many software packages provided by CSC have been installed using Tykky, e.g. R, many Python modules etc.
 
+## Login to Roihu supercomputer
+
+In this tutorial, we will use Roihu supercomputer. First login to Roihu using SSH (or by opening a login node shell in the [Roihu web interface](https://www.roihu.csc.fi)):
+  
+```bash
+ssh <username>@roihu-cpu.csc.fi    # replace <username> with your CSC username
+
+```
+
 ## Containerizing a Conda environment with Tykky
 
 💬 Let's create a containerized Conda environment using the Tykky wrapper.
@@ -30,7 +40,7 @@ Create a folder under your project's `/projappl` directory for the installation,
 mkdir -p /projappl/<project>/$USER/nglview    # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-Create an `env.yml` environment file defining the packages to be installed. Using for example `nano`, copy/paste the following contents to the file:
+Create an `env.yml` environment file defining the packages to be installed. Using for example `nano` or `vi`, editor, copy/paste the following contents to the file:
 
 ```yaml
 channels:
