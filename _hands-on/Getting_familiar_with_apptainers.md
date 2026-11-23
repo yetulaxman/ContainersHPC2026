@@ -9,10 +9,17 @@ title: Tutorial1 - Running applications in containers
 
 In normal testing it is best to use [interactive sessions](https://docs.csc.fi/computing/running/interactive-usage/). However, during courses Roihu `ìnteractive` partition can get congested, so these exercises have been designed to be light so you can run them in the login node.
 
-## Getting started
+## Login to Roihu supercomputer
 
-Log into Roihu.
+In this tutorial, we will use Roihu supercomputer. First login to Roihu using SSH (or by opening a login node shell in the [Roihu web interface](https://www.roihu.csc.fi)):
+  
+```bash
+ssh <username>@roihu-cpu.csc.fi    # replace <username> with your CSC username
 
+# Navigate to the /scratch area of your project
+cd /scratch/<project_xxxx>/$USER   # replace with your own or course project number
+
+```
 
 Download a test container image from Allas:
 
