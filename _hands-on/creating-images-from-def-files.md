@@ -23,6 +23,19 @@ kind of setup gives you the most options, and makes troubleshooting the easiest.
 
 We will be building a container for [COBRA](https://github.com/linxingchen/cobra) software.
 
+
+## 0. Login to Roihu supercomputer
+
+In this tutorial, we will use Roihu supercomputer. 
+
+```bash
+ssh <username>@roihu-cpu.csc.fi    # replace <username> with your CSC username
+
+# Navigate to the /scratch area of your project
+cd /scratch/<project_xxxx>/$USER   # replace with your own or course project number
+
+```
+
 ## 1. Creating a definition file
 
 Create an empty definition file. You can use a text editor of your choice, e.g. `nano`:
