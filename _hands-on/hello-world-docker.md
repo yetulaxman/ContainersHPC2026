@@ -21,18 +21,17 @@ ssh cscusername@roihu-cpu.csc.fi. # replace with your own csc user name
 Start by downloading ssh key:
 
 ```bash
-wget  <url>
+ wget  https://a3s.fi/Containers/archive.zip
 ```
-Extract the file and enter the password provided during the course when prompted
+Extract the file and enter the password provided during the course when prompted. Password will be provided during the course.
 
 ```bash
-unzip xxx
+unzip archive.zip
 ```
-
-You can now use the SSH key to log in to the cPouta virtual machine. Replace courseXX with the course username assigned to you for the cPouta machine (see the HedgeDoc document for your assigned username).
+You can now use the SSH key to log in to the cPouta virtual machine. Replace courseXX with the course account assigned to you for cPouta VM. Your assigned username can be found in the HackMD document.
 
 ```bash
-ssh  -i course_key courseXX@<VM-IP-address>
+ssh -i course_key  <userxx>@195.148.21.74
 ```
 
 ## Launch a hello-world Container 
