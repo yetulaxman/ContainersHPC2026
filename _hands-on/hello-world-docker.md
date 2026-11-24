@@ -11,9 +11,9 @@ In this tutorial, you will learn to:
  - Explain the difference between a container image and a running container
  - Understand what happens behind the scenes when a Docker container is created and executed
 
-## Connnect to course VM
+## Connnect to course VM once you login to Roihu
 
-We have provided a Docker environment in cPouta for this course. The cPouta virtual machine can be accessed from the Roihu CPU login nodes. First, log in to Roihu:
+For this course, we have provided a Docker environment running on a cPouta virtual machine. The cPouta VM can be accessed from the Roihu CPU login nodes. First, log in to Roihu:
 
 ```bash
 ssh cscusername@roihu-cpu.csc.fi. # replace with your own csc user name
