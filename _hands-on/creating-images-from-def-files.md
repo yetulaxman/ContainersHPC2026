@@ -125,7 +125,6 @@ By default Apptainer saves temporary files to you home directory. As the home di
 use some other location. You can do this by setting some environment variables:
 
 ```bash
-export APPTAINER_TMPDIR=$TMPDIR
 export APPTAINER_CACHEDIR=$TMPDIR
 ```
 
