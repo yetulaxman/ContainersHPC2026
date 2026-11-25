@@ -48,8 +48,7 @@ Let's use a batch script to submit the Nextflow job to the cluster. If you are d
 #SBATCH --cpus-per-task=4
 #SBATCH --mem-per-cpu=4000
 
-# Let's use the scratch area for temporary and cache storage
-export APPTAINER_TMPDIR=$TMPDIR
+# Let's use the scratch area for cache storage
 export APPTAINER_CACHEDIR=$TMPDIR
 
 # This is just to avoid some annoying warnings
