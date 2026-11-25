@@ -57,7 +57,7 @@ Open a  terminal and check the workflow log:
 
 ```bash
 tail -f .nextflow.log # check if all processes are finished
-Submitted process .nextflow.log   # find all processes that are run with containers
+grep "Submitted process" .nextflow.log   # find all processes that are run with containers
 ```
 
 ## Examine the results
