@@ -51,7 +51,7 @@ nextflow run main.nf \
 
 During the first run, Nextflow will automatically download the required container images. This may take a few minutes depending on network speed and image size.
 
-## check workflow execution once finished
+## Check workflow log files once execution is finished
 
 Open a  terminal and check the workflow log:
 
