@@ -1,10 +1,7 @@
-# Hands-on: Running an nf-core Pipeline with Apptainer
-
 ---
 topic: containers
 title: Tutorial6 - Running an nf-core Pipeline with multiple containers
 ---
-
 In this exercise, you will run a simplified nf-core-style workflow using **Nextflow** and **Apptainer** on the CSC Roihu supercomputer. The objective is to learn how Nextflow executes containerized workflows and automatically manages software dependencies through containers.
 
 ## Login to Roihu
