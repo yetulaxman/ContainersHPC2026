@@ -32,8 +32,7 @@ Take a moment to explore the repository structure:
 tree -L 2
 ```
 
-Can you identify:
-
+Can you identify (optional):
 - The main Nextflow workflow file?
 - Input data files?
 - Configuration files?
@@ -76,7 +75,7 @@ Identify:
 
 Consider how Nextflow organizes outputs compared to running the tools manually.
 
-### Questions and hints (Optional)
+### Questions and hints 
 
 #### 1. Which container images are used by the workflow?
 
