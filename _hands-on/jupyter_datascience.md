@@ -7,7 +7,7 @@ title: Tutorial1 - Launch custom Jupyter notebook
 
 > This tutorial is done on **Roihu and its web interface**, which requires that:
 
-- You have a [user account with SSH keys/certificates set up on Roihu](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
+- You have a user account at CSC and be able login via [Roihu web interface](https://www.roihu.csc.fi/public/).
 - Your account belongs to a project [that has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
 
