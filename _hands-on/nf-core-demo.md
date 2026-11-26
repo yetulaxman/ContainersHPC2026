@@ -87,7 +87,6 @@ cd ./modules/nf-core
 Based on the image URI, determine the source registry:
 - `docker.io/...` → Docker Hub
 - `quay.io/...` → Quay.io
-- `quay.io/biocontainers/...` → BioContainers
 - `https://depot.galaxyproject.org/...` → Galaxy Singularity repository
 
 #### 3. Does every process use the same container, or are multiple containers used?
