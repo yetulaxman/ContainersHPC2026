@@ -50,16 +50,15 @@ grep "Submitted process" .nextflow.log   # find all processes that are run with 
 
 ## Examine the results
 
-Once the workflow completes, inspect the output directory for the output files from workflow:
+Once the workflow is completed, inspect the output directory for the results:
 
 ```bash
 tree results
 ```
-Identify:
+Identify (optional):
 - Quality control reports
 - Summary files
 - Workflow outputs
-- Any generated statistics
 
 ### Questions and hints 
 
