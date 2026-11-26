@@ -19,24 +19,12 @@ Replace `<username>` with your CSC username.
 Create a working directory in your project's scratch area and clone the repository:
 
 ```bash
-mkdir -p /scratch/<project>/$USER  # replace with your project
-cd /scratch/<project>/$USER  # replace with your project
+mkdir -p /scratch/<project>/$USER  # replace <project> with your project name
+cd /scratch/<project>/$USER  # replace <project> with your project name
 
 git clone https://github.com/yetulaxman/demo-nf-core.git
 cd demo-nf-core
 ```
-
-Take a moment to explore the repository structure:
-
-```bash
-tree -L 2
-```
-
-Can you identify (optional):
-- The main Nextflow workflow file?
-- Input data files?
-- Configuration files?
-- Any references to container images?
 
 ## Run the pipeline
 
@@ -53,7 +41,7 @@ During the first run, Nextflow will automatically download the required containe
 
 ## Check workflow log files once execution is finished
 
-Open a  terminal and check the workflow log:
+Open a  terminal and explore the workflow log:
 
 ```bash
 tail -f .nextflow.log # check if all processes are finished
@@ -62,7 +50,7 @@ grep "Submitted process" .nextflow.log   # find all processes that are run with 
 
 ## Examine the results
 
-Once the workflow completes, inspect the output directory:
+Once the workflow completes, inspect the output directory for the output files from workflow:
 
 ```bash
 tree results
@@ -73,8 +61,6 @@ Identify:
 - Workflow outputs
 - Any generated statistics
 
-Consider how Nextflow organizes outputs compared to running the tools manually.
-
 ### Questions and hints 
 
 #### 1. Which container images are used by the workflow?
@@ -84,22 +70,20 @@ Consider how Nextflow organizes outputs compared to running the tools manually.
 ```bash
 work/singularity/
 ```
-
 List the downloaded container images:
-
 ```bash
 find work/singularity -name "*.img"
 ```
 
-Can*you identify which bio*nformatics tools these images corr*spond* to?
+Can you identify which bioinformatics tools these images correspond to?
 
-#### 2. Are the images*pulled from Docker Hub, Quay.io, B*oContainers, or another registry?
-***Hint:** Container URIs are usual*y defined in the process or module*definitions.
+#### 2. Are the images pulled from Docker Hub, Quay.io, BioContainers, or another registry?
+***Hint:** Container URIs are usually defined in the process or module definitions.
 
-Search for container *definitions* in main.nf files (under modules/nf-core/ ...)
+Search for container *definitions* which are usually in main.nf files (under modules/nf-core/ ...)
 
 ```bash
-grep -R "container" ./modules/nf-core/*/main.nf
+cd ./modules/nf-core
 ```
 Based on the image URI, determine the source registry:
 - `docker.io/...` → Docker Hub
