@@ -31,6 +31,9 @@ cd demo-nf-core
 Launch the workflow using the Apptainer profile:
 
 ```bash
+module load bio-apps
+module load nextflow/25.10.2-standalone # Load nextflow module
+
 nextflow run main.nf \
     -profile apptainer \
     --input samplesheet_test_illumina_amplicon.csv \
