@@ -37,7 +37,7 @@ decrease load on the Slurm batch job scheduler.
    ```bash
    module load hyperqueue/0.25.1
    module load bip-apps
-   module load snakemake/9.14.0
+   module load snakemake/9.16.2
    ```
 
 2. HyperQueue executor settings for a Snakemake workflow can be changed
